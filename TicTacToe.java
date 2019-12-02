@@ -1,4 +1,3 @@
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
@@ -33,7 +32,6 @@ public class TicTacToe {
 		l.addMouseListener(listener);
 		setup();
 		drawImage();
-
 		JOptionPane.showMessageDialog(null, l);
 	}
 
@@ -87,7 +85,6 @@ public class TicTacToe {
 			int x = (int) mouse.getX();
 			int y = (int) mouse.getY();
 			int i = -1, j = -1;
-			g.setStroke(new BasicStroke(2));
 			if (x > 50 && x < 350) {
 				i = 0;
 				if (y > 50 && y < 350)
@@ -132,8 +129,8 @@ public class TicTacToe {
 				g.fillPolygon(new int[] { (100 + (i * 300)), (120 + (i * 300)), (300 + (i * 300)), (280 + (i * 300)) },
 						new int[] { (300 + (j * 300)), (300 + (j * 300)), (100 + (j * 300)), (100 + (j * 300)) }, 4);
 				currentx = false;
+				places[i][j] = 1;
 			}
-			places[i][j] = 1;
 		}
 	}
 
@@ -145,8 +142,8 @@ public class TicTacToe {
 				g.setColor(Color.black);
 				g.fillOval(110 + (i * 300), 110 + (j * 300), 180, 180);
 				currentx = true;
+				places[i][j] = 10;
 			}
-			places[i][j] = 10;
 		}
 	}
 
